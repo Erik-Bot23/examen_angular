@@ -1,13 +1,31 @@
-<tr *ngFor="let user of usuarios">
-  <td>{{ user.nombre }}</td>
-  <td> {{ user.apellidoPaterno }} </td>
-  <td> {{ user.apellidoMaterno }} </td>
-  <td> {{ user.nombreUsuario }} </td>
-  <td> {{ user.fechaNacimiento }} </td>
-  <td> {{ user.edad }} </td>
-  <td>
-    {{ user.domicilio.calle }} {{ user.domicilio.numeroExterior }},
-    Col. {{ user.domicilio.colonia }}, CP {{ user.domicilio.codigoPostal }},
-    {{ user.domicilio.ciudad }}
-  </td>
-</tr>
+<table class="tabla-usuarios">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Usuario</th>
+      <th>Nacimiento</th>
+      <th>Edad</th>
+      <th>Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usuarios">
+      <td>{{ user.nombre }}</td>
+      <td> {{ user.apellidoPaterno }} </td>
+      <td> {{ user.apellidoMaterno }} </td>
+      <td> {{ user.nombreUsuario }} </td>
+      <td> {{ user.nacimiento }} </td>
+      <td> {{ user.edad }} </td>
+      <td>
+        {{ user.domicilio.calle }} {{ user.domicilio.numeroExterior }},
+        Col. {{ user.domicilio.colonia }}, CP {{ user.domicilio.codigoPostal }},
+        {{ user.domicilio.ciudad }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+

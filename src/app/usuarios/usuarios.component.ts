@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Usuarios } from '../interface/usuarios';
+import { UsuarioService } from '../service/usuario-service.service';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -9,6 +11,15 @@ import { Usuarios } from '../interface/usuarios';
   templateUrl: './usuarios.component.html',
   styleUrl: './usuarios.component.css'
 })
-export class UsuariosComponent {
+export class UsuariosComponent implements OnInit {
+  private usuarioService = inject(UsuarioService)
   usuarios: Usuarios[] = [];
+
+  ngOnInit(): void {
+    this.usuarioService.getUsuarios().subscribe({
+      next: (data) => this.usuarios = data,
+      error: (err) => console.error('Error', err)
+
+    })
+  }
 }
